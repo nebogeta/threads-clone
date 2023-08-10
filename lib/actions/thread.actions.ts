@@ -8,6 +8,7 @@ import User from "@lib/models/user.model";
 import Thread from "@lib/models/thread.model";
 import Community from "@lib/models/community.model";
 
+
 export async function fetchPosts(pageNumber = 1, pageSize = 20) {
     connectToDB();
 

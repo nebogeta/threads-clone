@@ -13,8 +13,7 @@ export async function fetchUser(userId: string) {
     try {
         connectToDB();
 
-        return await User.findOne({ id: userId })
-            .populate({
+        return await User.findOne({ id: userId }).populate({
             path: "communities",
             model: Community,
         });
@@ -41,7 +40,7 @@ export async function updateUser({
                                      image,
                                  }: Params): Promise<void> {
     try {
-         connectToDB();
+        connectToDB();
 
         await User.findOneAndUpdate(
             { id: userId },
@@ -62,7 +61,6 @@ export async function updateUser({
         throw new Error(`Failed to create/update user: ${error.message}`);
     }
 }
-
 
 export async function fetchUserPosts(userId: string) {
     try {
